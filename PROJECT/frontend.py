@@ -105,19 +105,16 @@ class qa_sys:
         DataFrameRIGHT.pack(side=RIGHT)
 
         # --------------------------------entries-------------------------------------------------------------------------------------------------
-        self.lblBNO = Label(DataFrameLEFT, font=('Arial', 20, 'bold'), text="BATCH NUMBER:", padx=2, pady=2,
-                            bg="Ghost White")
-        self.lblBNO.grid(row=0, column=0, sticky=W)
-        self.txtBNO = Entry(DataFrameLEFT, font=('Arial', 20, 'bold'), textvariable=BNO, width=39)
-        self.txtBNO.grid(row=0, column=1)
+        self.lblBNO = Label(DataFrameLEFT, font=('Arial', 20, 'bold'), text="BATCH NUMBER:", padx=2, pady=2, bg="Ghost White")
+        self.lblBNO.grid(row=0,column=0,sticky=W)
+self.txtBNO = Entry(DataFrameLEFT,font=('Arial', 20, 'bold'), textvariable=BNO, width=39) self.txtBNO.grid(row=0, column=1)
+self.lblfna = Label(DataFrameLEFT, font=('Arial', 20, 'bold'), text="MATERIAL NAME:", padx=2, pady=2,bg="Ghost White")
+self.lblfna.grid(row=1, column=0,sticky=W)
+self.txtfna = Entry(DataFrameLEFT, font=('Arial', 20, 'bold'),textvariable=PRODNAME, width=39)
 
-        self.lblfna = Label(DataFrameLEFT, font=('Arial', 20, 'bold'), text="MATERIAL NAME:", padx=2, pady=2,
-                            bg="Ghost White")
-        self.lblfna.grid(row=1, column=0, sticky=W)
-        self.txtfna = Entry(DataFrameLEFT, font=('Arial', 20, 'bold'), textvariable=PRODNAME, width=39)
-        self.txtfna.grid(row=1, column=1)
+self.txtfna.grid(row=1, column=1)
 
-        self.lblSna = Label(DataFrameLEFT, font=('Arial', 20, 'bold'), text="TYPE:", padx=2, pady=2, bg="Ghost White")
+self.lblSna = Label(DataFrameLEFT, font=('Arial', 20, 'bold'), text="TYPE:", padx=2, pady=2, bg="Ghost White")
         self.lblSna.grid(row=2, column=0, sticky=W)
         self.txtSna = Entry(DataFrameLEFT, font=('Arial', 20, 'bold'), textvariable=TYPE, width=39)
         self.txtSna.grid(row=2, column=1)
