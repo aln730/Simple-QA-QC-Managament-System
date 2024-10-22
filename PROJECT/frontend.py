@@ -6,7 +6,7 @@ class qa_sys:
 
     def __init__(self, root):
         self.root = root
-        self.root.title("Quality Analysis and Control")
+        self.root.title("The Warehouse")
         self.root.geometry("1500x650")
         self.root.config(bg="lightgrey")
 
@@ -21,7 +21,7 @@ class qa_sys:
 
         # --------------------------------------FUNCTIONS-------------------------------------------------------------------
         def iExit():
-            iExit = tkinter.messagebox.askyesno("Quality Analysis and Control", "Confirm if you want to exit")
+            iExit = tkinter.messagebox.askyesno("The Warehouse", "Confirm if you want to exit")
             if iExit > 0:
                 root.destroy()
                 return
@@ -38,7 +38,7 @@ class qa_sys:
 
         def addData():
             if(len(BNO.get()) != 0):
-                backed.addStdRec(BNO.get(), PRODNAME.get(), TYPE.get(), IMPORT_DATE.get(), SUPP.get(),
+                backend.addStdRec(BNO.get(), PRODNAME.get(), TYPE.get(), IMPORT_DATE.get(), SUPP.get(),
                                  selected_VALID.get(), STAB.get(), FEED.get())
                 qa_sys.delete(0, END)
                 qa_sys.insert(END, (BNO.get(), PRODNAME.get(), TYPE.get(), IMPORT_DATE.get(), SUPP.get(),
@@ -46,7 +46,7 @@ class qa_sys:
 
         def DisplayData():
             qa_sys.delete(0, END)
-            for row in backed.viewData():
+            for row in backend.viewData():
                 qa_sys.insert(END, row, str(""))
 
         def table123Rec(event):
@@ -72,15 +72,15 @@ class qa_sys:
 
         def DeleteData():
             if(len(BNO.get()) != 0):
-                backed.deleteRec(sd[0])
+                backend.deleteRec(sd[0])
                 clearData()
                 DisplayData()
 
         def update():
             if (len(BNO.get()) != 0):
-                backed.deleteRec(sd[0])
+                backend.deleteRec(sd[0])
             if (len(BNO.get()) != 0):
-                backed.addStdRec(BNO.get(), PRODNAME.get(), TYPE.get(), IMPORT_DATE.get(), SUPP.get(),
+                backend.addStdRec(BNO.get(), PRODNAME.get(), TYPE.get(), IMPORT_DATE.get(), SUPP.get(),
                                  selected_VALID.get(), STAB.get(), FEED.get())
                 qa_sys.delete(0, END)
                 qa_sys.insert(END, (BNO.get(), PRODNAME.get(), TYPE.get(), IMPORT_DATE.get(), SUPP.get(),
@@ -91,7 +91,7 @@ class qa_sys:
         MainFrame.grid()
         TitFrame = Frame(MainFrame, bd=2, padx=54, pady=8, bg="Ghost White", relief=RIDGE)
         TitFrame.pack(side=TOP)
-        self.lblTit = Label(TitFrame, font=('Arial', 48, 'bold'), text="Quality Analysis and Control", bg="Ghost White")
+        self.lblTit = Label(TitFrame, font=('Arial', 48, 'bold'), text="The Warehouse", bg="Ghost White")
         self.lblTit.grid()
         ButtonFrame = Frame(MainFrame, bd=2, width=1350, height=70, padx=19, pady=10, bg="Ghost White", relief=RIDGE)
         ButtonFrame.pack(side=BOTTOM)
@@ -107,14 +107,15 @@ class qa_sys:
         # --------------------------------entries-------------------------------------------------------------------------------------------------
         self.lblBNO = Label(DataFrameLEFT, font=('Arial', 20, 'bold'), text="BATCH NUMBER:", padx=2, pady=2, bg="Ghost White")
         self.lblBNO.grid(row=0,column=0,sticky=W)
-self.txtBNO = Entry(DataFrameLEFT,font=('Arial', 20, 'bold'), textvariable=BNO, width=39) self.txtBNO.grid(row=0, column=1)
-self.lblfna = Label(DataFrameLEFT, font=('Arial', 20, 'bold'), text="MATERIAL NAME:", padx=2, pady=2,bg="Ghost White")
-self.lblfna.grid(row=1, column=0,sticky=W)
-self.txtfna = Entry(DataFrameLEFT, font=('Arial', 20, 'bold'),textvariable=PRODNAME, width=39)
+        self.txtBNO = Entry(DataFrameLEFT,font=('Arial', 20, 'bold'), textvariable=BNO, width=39) 
+        self.txtBNO.grid(row=0, column=1)
+        self.lblfna = Label(DataFrameLEFT, font=('Arial', 20, 'bold'), text="MATERIAL NAME:", padx=2, pady=2,bg="Ghost White")
+        self.lblfna.grid(row=1, column=0,sticky=W)
+        self.txtfna = Entry(DataFrameLEFT, font=('Arial', 20, 'bold'),textvariable=PRODNAME, width=39)
 
-self.txtfna.grid(row=1, column=1)
+        self.txtfna.grid(row=1, column=1)
 
-self.lblSna = Label(DataFrameLEFT, font=('Arial', 20, 'bold'), text="TYPE:", padx=2, pady=2, bg="Ghost White")
+        self.lblSna = Label(DataFrameLEFT, font=('Arial', 20, 'bold'), text="TYPE:", padx=2, pady=2, bg="Ghost White")
         self.lblSna.grid(row=2, column=0, sticky=W)
         self.txtSna = Entry(DataFrameLEFT, font=('Arial', 20, 'bold'), textvariable=TYPE, width=39)
         self.txtSna.grid(row=2, column=1)
