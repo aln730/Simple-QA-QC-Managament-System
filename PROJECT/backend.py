@@ -10,16 +10,15 @@ def addStdRec(BNO, PRODNAME, TYPE, IMPORT_DATE, SUPP, selected_VALID, STAB, FEED
     con = sqlite3.connect("qa_system.db")
     cur = con.cursor()
 
-    # Get the maximum id value
+
     cur.execute("SELECT MAX(id) FROM table123")
     max_id = cur.fetchone()[0]
 
-    # Handle the case where max_id is None
     if max_id is None:
         max_id = 0
 
     try:
-        # Insert the new row with the next available ID
+
         cur.execute("INSERT INTO table123 (id, BNO, PRODNAME, TYPE, IMPORT_DATE, SUPP, selected_VALID, STAB, FEED) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                     (max_id + 1, BNO, PRODNAME, TYPE, IMPORT_DATE, SUPP, selected_VALID, STAB, FEED))
         con.commit()
@@ -42,21 +41,21 @@ def deleteRec(id):
     con = sqlite3.connect("qa_system.db")
     cur = con.cursor()
 
-    # Get the maximum id value
+
     cur.execute("SELECT MAX(id) FROM table123")
     max_id = cur.fetchone()[0]
 
-    # Delete the entry
+
     cur.execute("DELETE FROM table123 WHERE id=?", (id,))
     con.commit()
 
-    # If the deleted row had the maximum id, no need to renumber
+
     if id < max_id:
-        # Update the remaining entries to maintain sequential ids
+
         cur.execute("UPDATE table123 SET id = id - 1 WHERE id > ?", (id,))
         con.commit()
 
-    # Close the connection after both queries are executed
+
     con.close()
 
     
