@@ -1,4 +1,36 @@
-# The Warehouse
-'The Warehouse' is a Python-based application developed using the Tkinter library, designed to streamline material quality management in manufacturing. With a user-friendly interface, it allows users to input and manage information such as Batch Number, Material Name, Type, Import Date, Supplier details, Test Validity, Cost, and Weight.
-Key features include adding, displaying, clearing, deleting, and updating records. The application utilizes an SQLite database ('qa_system.db') to store and organize data securely. It cleverly manages unique identifiers for records, ensuring each entry gets a distinct ID based on the maximum existing ID. This enables smooth deletion and renumbering of records without compromising system functionality.
-Catering to quality control personnel and production managers, the system provides an intuitive solution for maintaining and monitoring material quality. Its design and robust capabilities make it an essential tool for organizations committed to upholding the highest standards in their manufacturing processes.
+Overview:
+
+This code manages a warehouse inventory system using SQLite3 for database operations. It provides functionality to add, view, update, and delete records in a database table named table123.
+Features:
+
+    Table Initialization (table123Data):
+        Ensures the table123 table exists with the following schema:
+            id: Auto-incremented primary key.
+            BNO: Batch number (text).
+            PRODNAME: Product name (text).
+            TYPE: Product type (text).
+            IMPORT_DATE: Import date (text).
+            SUPP: Supplier (text).
+            selected_VALID: Test validity (Yes/No as text).
+            STAB: Stability or cost (text).
+            FEED: Feed or weight (text).
+
+    Add Record (addStdRec):
+        Inserts a new record with sequential IDs. Handles cases where no records exist.
+
+    View Records (viewData):
+        Fetches all rows from table123.
+
+    Delete Record (deleteRec):
+        Deletes a record by id and renumbers subsequent records to maintain sequential IDs.
+
+    Update Record (dataUpdate):
+        Modifies fields of an existing record identified by id.
+
+Setup Instructions:
+
+    Prerequisites:
+        Python 3.x installed with SQLite3 (default library).
+    Steps:
+        Place the code in a Python script file.
+        Run table123Data() to initialize the database if not already created.
